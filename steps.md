@@ -16,4 +16,5 @@
 - extract the filters into individual composable functions
 - integrate the homeviewmodel with house-type filter
 - price filter
+- rating filter
 - upload date filter

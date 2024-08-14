@@ -34,6 +34,7 @@ class HomeViewModel : ViewModel() {
         )
     }
 
+    // room filter
     private val _expandedRooms = MutableLiveData(false)
     val expandedRooms: LiveData<Boolean> = _expandedRooms
 
@@ -62,5 +63,13 @@ class HomeViewModel : ViewModel() {
 
     fun togglePriceFilter() {
         _priceFilter.postValue(!_priceFilter.value!!)
+    }
+
+    // rating filter
+    private val _ratingFilter = MutableLiveData(true)
+    val ratingFilter: LiveData<Boolean> = _ratingFilter
+
+    fun toggleRatingFilter() {
+        _ratingFilter.postValue(!_ratingFilter.value!!)
     }
 }
