@@ -18,9 +18,11 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
 import com.erichydev.rentals.ui.navigation.Screens
 import com.erichydev.rentals.ui.theme.RentalsTheme
 
@@ -64,8 +66,12 @@ fun App() {
             )
         }
 
-        composable(Screens.PlotScreen.route){
-            PlotScreen()
+        composable(
+            Screens.PlotScreen.route,
+            listOf(navArgument("plotId") { type = NavType.StringType})
+        ){ backStackEntry ->
+            val plotId = backStackEntry.arguments?.getString("plotId")
+            PlotScreen(plotId!!)
         }
     }
 }
