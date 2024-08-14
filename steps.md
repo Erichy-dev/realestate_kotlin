@@ -13,3 +13,5 @@
 - set up the plotview
 - set up the homeViewModel
 - implement the filters
+- create the housetype dropdownmenu
+- extract the filters into individual composable functions

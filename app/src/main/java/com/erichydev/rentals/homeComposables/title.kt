@@ -1,6 +1,5 @@
-package com.erichydev.rentals.homeComponents
+package com.erichydev.rentals.homeComposables
 
-import android.icu.text.CaseMap.Title
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable

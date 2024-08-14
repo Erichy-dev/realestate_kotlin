@@ -18,12 +18,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
-import com.erichydev.rentals.api.getPlots
-import com.erichydev.rentals.homeComponents.Filters
-import com.erichydev.rentals.homeComponents.HomeViewModel
-import com.erichydev.rentals.homeComponents.PlotView
-import com.erichydev.rentals.homeComponents.PrivacyPolicy
-import com.erichydev.rentals.homeComponents.Title
+import com.erichydev.rentals.homeComposables.Filters
+import com.erichydev.rentals.homeComposables.HomeViewModel
+import com.erichydev.rentals.homeComposables.PlotView
+import com.erichydev.rentals.homeComposables.PrivacyPolicy
+import com.erichydev.rentals.homeComposables.Title
 import androidx.lifecycle.viewmodel.compose.viewModel
 
 @Composable

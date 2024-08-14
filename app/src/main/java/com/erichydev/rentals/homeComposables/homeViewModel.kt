@@ -1,4 +1,4 @@
-package com.erichydev.rentals.homeComponents
+package com.erichydev.rentals.homeComposables
 
 import android.content.Context
 import androidx.lifecycle.LiveData
@@ -6,7 +6,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.erichydev.rentals.api.getPlots
 import com.erichydev.rentals.data.Plot
-import com.erichydev.rentals.data.PlotResponse
 import com.erichydev.rentals.data.PlotsResponse
 
 class HomeViewModel : ViewModel() {

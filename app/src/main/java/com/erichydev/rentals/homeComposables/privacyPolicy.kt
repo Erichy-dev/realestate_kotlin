@@ -1,4 +1,4 @@
-package com.erichydev.rentals.homeComponents
+package com.erichydev.rentals.homeComposables
 
 import android.content.Intent
 import android.net.Uri
