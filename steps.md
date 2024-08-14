@@ -18,3 +18,5 @@
 - price filter
 - rating filter
 - upload date filter
+- add navigation dependencies
+- plot screen

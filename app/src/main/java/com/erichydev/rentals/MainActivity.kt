@@ -18,6 +18,10 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import com.erichydev.rentals.ui.navigation.Screens
 import com.erichydev.rentals.ui.theme.RentalsTheme
 
 class MainActivity : ComponentActivity() {
@@ -47,5 +51,15 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun App() {
-    Home()
+    val navController = rememberNavController()
+
+    NavHost(navController = navController, startDestination = Screens.HomeScreen.route ){
+        composable(Screens.HomeScreen.route){
+            Home()
+        }
+
+        composable(Screens.PlotScreen.route){
+            PlotScreen()
+        }
+    }
 }

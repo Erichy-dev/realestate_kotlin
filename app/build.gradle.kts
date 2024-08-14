@@ -83,4 +83,7 @@ dependencies {
     implementation(libs.androidx.runtime.rxjava2)
     // livedata
     implementation(libs.androidx.lifecycle.livedata.ktx)
+
+    //navigation compose
+    implementation(libs.androidx.navigation.compose)
 }
