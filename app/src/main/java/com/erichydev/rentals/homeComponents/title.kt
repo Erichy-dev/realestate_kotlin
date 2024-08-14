@@ -11,7 +11,7 @@ import androidx.compose.ui.unit.sp
 @Composable
 fun Title() {
     Text(
-        text = "RealEstate",
+        text = "Rentals",
         modifier = Modifier
             .padding(bottom = 10.dp),
         fontSize = 20.sp,
