@@ -17,6 +17,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -25,12 +26,15 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.erichydev.rentals.homeComposables.HomeViewModel
 
 @Composable
-fun HouseTypeFilter() {
-    var expandedRooms by remember {
-        mutableStateOf(false)
-    }
+fun HouseTypeFilter(
+    viewModel: HomeViewModel
+) {
+    val expandedRooms by viewModel.expandedRooms.observeAsState(false)
+    val originalPlots by viewModel.originalPlots.observeAsState(emptyList())
+    val fetchedPlots by viewModel.fetchedPlots.observeAsState(emptyList())
 
     Column(
         verticalArrangement = Arrangement.Bottom,
@@ -46,7 +50,7 @@ fun HouseTypeFilter() {
         ) {
             Row(
                 modifier = Modifier
-                    .clickable { expandedRooms = true }
+                    .clickable { viewModel.setExpandedRooms(true) }
                     .border(
                         width = 1.dp,
                         color = Color(0xFFedf2f4),
@@ -56,7 +60,7 @@ fun HouseTypeFilter() {
                 horizontalArrangement = Arrangement.spacedBy(5.dp),
             ) {
                 Text(
-                    text = "Bedsitter",
+                    text = "${viewModel.selectedRoomOption.value}",
                     modifier = Modifier
                         .padding(vertical = 5.dp)
                         .padding(start = 5.dp),
@@ -75,31 +79,47 @@ fun HouseTypeFilter() {
         }
         DropdownMenu(
             expanded = expandedRooms,
-            onDismissRequest = {  },
+            onDismissRequest = { viewModel.setExpandedRooms(false) },
         ) {
             DropdownMenuItem(
                 onClick = {
-                    expandedRooms = false
+                    viewModel.setExpandedRooms(false)
+                    viewModel.setSelectedRoomOption("Single")
+                    viewModel.setFetchedPlots(originalPlots.filter { plot -> plot.plotSingle })
                 },
                 text = { Text("Single") }
             )
             DropdownMenuItem(
                 onClick = {
-                    expandedRooms = false
+                    viewModel.setExpandedRooms(false)
+                    viewModel.setSelectedRoomOption("Bedsitter")
+                    viewModel.setFetchedPlots(originalPlots.filter { plot -> plot.plotBedsitter })
                 },
                 text = { Text("Bedsitter") }
             )
             DropdownMenuItem(
                 onClick = {
-                    expandedRooms = false
+                    viewModel.setExpandedRooms(false)
+                    viewModel.setSelectedRoomOption("1-Bedroom")
+                    viewModel.setFetchedPlots(originalPlots.filter { plot -> plot.plot1B })
                 },
                 text = { Text("1-Bedroom") }
             )
             DropdownMenuItem(
                 onClick = {
-                    expandedRooms = false
+                    viewModel.setExpandedRooms(false)
+                    viewModel.setSelectedRoomOption("2-Bedroom")
+                    viewModel.setFetchedPlots(originalPlots.filter { plot -> plot.plot2B })
                 },
                 text = { Text("2-Bedroom") }
+            )
+            DropdownMenuItem(
+                onClick = {
+                    viewModel.setExpandedRooms(false)
+                    viewModel.setSelectedRoomOption("Bedsitter")
+                    viewModel.setFetchedPlots(originalPlots)
+                },
+                text = { Text("Reset") }
             )
         }
     }

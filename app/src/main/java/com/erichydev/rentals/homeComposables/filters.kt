@@ -17,7 +17,7 @@ fun Filters(
         horizontalArrangement = Arrangement.SpaceBetween,
         modifier = Modifier.fillMaxWidth()
     ) {
-        HouseTypeFilter()
+        HouseTypeFilter(homeViewModel)
 
         PriceFilter()
 

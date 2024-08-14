@@ -11,20 +11,40 @@ import com.erichydev.rentals.data.PlotsResponse
 class HomeViewModel : ViewModel() {
     private val _fetchedPlots = MutableLiveData<List<Plot>>(emptyList())
     val fetchedPlots: LiveData<List<Plot>> = _fetchedPlots
+    private val _originalPlots = MutableLiveData<List<Plot>>(emptyList())
+    val originalPlots: LiveData<List<Plot>> = _originalPlots
 
-    private fun setFetchedPlots(plotsResponse: PlotsResponse) {
-        _fetchedPlots.postValue(plotsResponse.plots)
+    fun setFetchedPlots(plots: List<Plot>) {
+        _fetchedPlots.postValue(plots)
+    }
+    private fun setNewPlots(plots: List<Plot>) {
+        _fetchedPlots.postValue(plots)
+        _originalPlots.postValue(plots)
     }
 
     fun fetchPlots(context: Context) {
         getPlots(
             context,
             {
-                plots -> setFetchedPlots(plots)
+                plots -> setNewPlots(plots.plots)
             },
             {
                 // handle error
             }
         )
+    }
+
+    private val _expandedRooms = MutableLiveData(false)
+    val expandedRooms: LiveData<Boolean> = _expandedRooms
+
+    fun setExpandedRooms(expanded: Boolean) {
+        _expandedRooms.postValue(expanded)
+    }
+
+    private val _selectedRoomOption = MutableLiveData("Bedsitter")
+    val selectedRoomOption: LiveData<String> = _selectedRoomOption
+
+    fun setSelectedRoomOption(roomOption: String) {
+        _selectedRoomOption.postValue(roomOption)
     }
 }

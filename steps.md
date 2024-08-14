@@ -12,6 +12,6 @@
 - we'll be using images & svg so add the dependencies
 - set up the plotview
 - set up the homeViewModel
-- implement the filters
-- create the housetype dropdownmenu
+- FILTERS - create the housetype dropdownmenu
 - extract the filters into individual composable functions
+- integrate the homeviewmodel with filters
