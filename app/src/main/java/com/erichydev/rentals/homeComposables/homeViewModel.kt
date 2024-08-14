@@ -55,4 +55,12 @@ class HomeViewModel : ViewModel() {
     fun toggleUploadedFilter() {
         _uploadedFilter.postValue(!_uploadedFilter.value!!)
     }
+
+    // price filter
+    private val _priceFilter = MutableLiveData(true)
+    val priceFilter: LiveData<Boolean> = _priceFilter
+
+    fun togglePriceFilter() {
+        _priceFilter.postValue(!_priceFilter.value!!)
+    }
 }

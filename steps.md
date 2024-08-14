@@ -15,4 +15,5 @@
 - FILTERS - create the housetype dropdownmenu
 - extract the filters into individual composable functions
 - integrate the homeviewmodel with house-type filter
-- integrate the homeviewmodel with the other filters
+- price filter
+- upload date filter

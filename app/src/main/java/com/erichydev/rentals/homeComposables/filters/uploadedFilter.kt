@@ -58,7 +58,7 @@ fun UploadedFilter(
             fontSize = 13.sp
         )
         Icon(
-            imageVector = if (uploadedFilter) Icons.Default.KeyboardArrowDown else Icons.Default.KeyboardArrowUp,
+            imageVector = if (uploadedFilter) Icons.Default.KeyboardArrowUp else Icons.Default.KeyboardArrowDown,
             contentDescription = "uploaded",
             modifier = Modifier
                 .height(12.dp)
