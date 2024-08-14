@@ -19,38 +19,13 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun Filters() {
+fun Filters(
+    homeViewModel: HomeViewModel
+) {
     Row(
         horizontalArrangement = Arrangement.SpaceBetween,
         modifier = Modifier.fillMaxWidth()
     ) {
-        Row(
-            modifier = Modifier
-                .border(
-                    width = 1.dp,
-                    color = Color(0xFFedf2f4),
-                    shape = RoundedCornerShape(8.dp)
-                ),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.spacedBy(5.dp),
-        ) {
-            Text(
-                text = "Price",
-                modifier = Modifier
-                    .padding(vertical = 5.dp)
-                    .padding(start = 5.dp),
-                color = Color(0xFFedf2f4),
-                fontSize = 13.sp
-            )
-            Icon(
-                imageVector = Icons.Default.KeyboardArrowUp,
-                contentDescription = "price",
-                modifier = Modifier
-                    .height(12.dp)
-                    .padding(end = 5.dp),
-                tint = Color(0xFFedf2f4)
-            )
-        }
         Row(
             modifier = Modifier
                 .border(
@@ -78,6 +53,35 @@ fun Filters() {
                 tint = Color(0xFFedf2f4)
             )
         }
+
+        Row(
+            modifier = Modifier
+                .border(
+                    width = 1.dp,
+                    color = Color(0xFFedf2f4),
+                    shape = RoundedCornerShape(8.dp)
+                ),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(5.dp),
+        ) {
+            Text(
+                text = "Price",
+                modifier = Modifier
+                    .padding(vertical = 5.dp)
+                    .padding(start = 5.dp),
+                color = Color(0xFFedf2f4),
+                fontSize = 13.sp
+            )
+            Icon(
+                imageVector = Icons.Default.KeyboardArrowUp,
+                contentDescription = "price",
+                modifier = Modifier
+                    .height(12.dp)
+                    .padding(end = 5.dp),
+                tint = Color(0xFFedf2f4)
+            )
+        }
+
         Row(
             modifier = Modifier
                 .border(

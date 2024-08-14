@@ -20,16 +20,16 @@ import retrofit2.http.GET
 import retrofit2.http.Path
 
 interface ApiService {
-    @GET("")
+    @GET("plots/")
     fun getPlots(): Call<PlotsResponse>
 
-    @GET("plot/{plot_number}/")
+    @GET("plots/plot/{plot_number}/")
     fun getPlot(@Path("plot_number") plot_number: String): Call<PlotResponse>
 
-    @GET("{plot_number}/pics/")
+    @GET("plots/{plot_number}/pics/")
     fun getPlotPics(@Path("plot_number") plot_number: String): Call<PlotPicResponse>
 
-    @GET("{plot_number}/caretakers/")
+    @GET("plots/{plot_number}/caretakers/")
     fun getPlotCaretakers(@Path("plot_number") plot_number: String): Call<PlotCaretakerResponse>
 }
 
@@ -40,7 +40,7 @@ val gson: Gson = GsonBuilder()
     .setLenient()
     .create()
 val retrofit: Retrofit = Retrofit.Builder()
-    .baseUrl("https://realstate.pythonanywhere.com/plots/")
+    .baseUrl("https://realstate.pythonanywhere.com/")
     .client(httpClient.build())
     .addConverterFactory(GsonConverterFactory.create(gson))
     .build()

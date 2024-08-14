@@ -1,7 +1,9 @@
 package com.erichydev.rentals.data
 
+import androidx.compose.runtime.Immutable
 import com.google.gson.annotations.SerializedName
 
+@Immutable
 data class Plot(
     @SerializedName("plot_number") val plotNumber: String,
     @SerializedName("plot_upload_data") val plotUploadData: String,
@@ -16,22 +18,29 @@ data class Plot(
     @SerializedName("plot_bg_pic") val plotBgPic: String?,
 )
 
+@Immutable
 data class PlotsResponse(
     @SerializedName("plots") val plots: List<Plot>
 )
+
+@Immutable
 data class PlotResponse(
     @SerializedName("plot") val plot: Plot
 )
 
+@Immutable
 data class PlotPic(
     @SerializedName("plot_number") val plotNumber: String,
     @SerializedName("plot_pic") val plotPic: String,
     @SerializedName("plot_pic_desc") val plotPicDesc: String?
 )
+
+@Immutable
 data class PlotPicResponse (
     @SerializedName("plot_pics") val plotPics: List<PlotPic>
 )
 
+@Immutable
 data class PlotOccupant(
     @SerializedName("plot_number") val plotNumber: String,
     @SerializedName("plot_occupant_id") val plotOccupantId: String,
@@ -41,10 +50,13 @@ data class PlotOccupant(
     @SerializedName("plot_occupant_phone") val plotOccupantPhone: String,
     @SerializedName("plot_occupant_email") val plotOccupantEmail: String?
 )
+
+@Immutable
 data class PlotCaretakerResponse (
     @SerializedName("caretakers") val caretakers: List<PlotOccupant>
 )
 
+@Immutable
 data class FailedRequest(
     val error: String
 )

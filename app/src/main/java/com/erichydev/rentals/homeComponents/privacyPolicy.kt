@@ -26,7 +26,7 @@ fun PrivacyPolicy() {
                     .clickable {
                         val intent = Intent(
                             Intent.ACTION_VIEW,
-                            Uri.parse("https://www.nyumbakumi.net/privacyPolicy")
+                            Uri.parse("https://github.com/Erichy-dev/realestate_kotlin")
                         )
                         context.startActivity(intent)
                     }
