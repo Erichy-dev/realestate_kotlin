@@ -14,4 +14,5 @@
 - set up the homeViewModel
 - FILTERS - create the housetype dropdownmenu
 - extract the filters into individual composable functions
-- integrate the homeviewmodel with filters
+- integrate the homeviewmodel with house-type filter
+- integrate the homeviewmodel with the other filters

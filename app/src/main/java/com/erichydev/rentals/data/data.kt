@@ -6,7 +6,7 @@ import com.google.gson.annotations.SerializedName
 @Immutable
 data class Plot(
     @SerializedName("plot_number") val plotNumber: String,
-    @SerializedName("plot_upload_data") val plotUploadData: String,
+    @SerializedName("plot_upload_date") val plotUploadDate: String,
     @SerializedName("plot_address") val plotAddress: String,
     @SerializedName("plot_price") val plotPrice: Int,
     @SerializedName("plot_single") val plotSingle: Boolean,

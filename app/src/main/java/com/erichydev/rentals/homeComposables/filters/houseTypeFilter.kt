@@ -30,11 +30,10 @@ import com.erichydev.rentals.homeComposables.HomeViewModel
 
 @Composable
 fun HouseTypeFilter(
-    viewModel: HomeViewModel
+    homeViewModel: HomeViewModel
 ) {
-    val expandedRooms by viewModel.expandedRooms.observeAsState(false)
-    val originalPlots by viewModel.originalPlots.observeAsState(emptyList())
-    val fetchedPlots by viewModel.fetchedPlots.observeAsState(emptyList())
+    val expandedRooms by homeViewModel.expandedRooms.observeAsState(false)
+    val originalPlots by homeViewModel.originalPlots.observeAsState(emptyList())
 
     Column(
         verticalArrangement = Arrangement.Bottom,
@@ -50,7 +49,7 @@ fun HouseTypeFilter(
         ) {
             Row(
                 modifier = Modifier
-                    .clickable { viewModel.setExpandedRooms(true) }
+                    .clickable { homeViewModel.setExpandedRooms(true) }
                     .border(
                         width = 1.dp,
                         color = Color(0xFFedf2f4),
@@ -60,7 +59,7 @@ fun HouseTypeFilter(
                 horizontalArrangement = Arrangement.spacedBy(5.dp),
             ) {
                 Text(
-                    text = "${viewModel.selectedRoomOption.value}",
+                    text = "${homeViewModel.selectedRoomOption.value}",
                     modifier = Modifier
                         .padding(vertical = 5.dp)
                         .padding(start = 5.dp),
@@ -79,45 +78,45 @@ fun HouseTypeFilter(
         }
         DropdownMenu(
             expanded = expandedRooms,
-            onDismissRequest = { viewModel.setExpandedRooms(false) },
+            onDismissRequest = { homeViewModel.setExpandedRooms(false) },
         ) {
             DropdownMenuItem(
                 onClick = {
-                    viewModel.setExpandedRooms(false)
-                    viewModel.setSelectedRoomOption("Single")
-                    viewModel.setFetchedPlots(originalPlots.filter { plot -> plot.plotSingle })
+                    homeViewModel.setExpandedRooms(false)
+                    homeViewModel.setSelectedRoomOption("Single")
+                    homeViewModel.setFetchedPlots(originalPlots.filter { plot -> plot.plotSingle })
                 },
                 text = { Text("Single") }
             )
             DropdownMenuItem(
                 onClick = {
-                    viewModel.setExpandedRooms(false)
-                    viewModel.setSelectedRoomOption("Bedsitter")
-                    viewModel.setFetchedPlots(originalPlots.filter { plot -> plot.plotBedsitter })
+                    homeViewModel.setExpandedRooms(false)
+                    homeViewModel.setSelectedRoomOption("Bedsitter")
+                    homeViewModel.setFetchedPlots(originalPlots.filter { plot -> plot.plotBedsitter })
                 },
                 text = { Text("Bedsitter") }
             )
             DropdownMenuItem(
                 onClick = {
-                    viewModel.setExpandedRooms(false)
-                    viewModel.setSelectedRoomOption("1-Bedroom")
-                    viewModel.setFetchedPlots(originalPlots.filter { plot -> plot.plot1B })
+                    homeViewModel.setExpandedRooms(false)
+                    homeViewModel.setSelectedRoomOption("1-Bedroom")
+                    homeViewModel.setFetchedPlots(originalPlots.filter { plot -> plot.plot1B })
                 },
                 text = { Text("1-Bedroom") }
             )
             DropdownMenuItem(
                 onClick = {
-                    viewModel.setExpandedRooms(false)
-                    viewModel.setSelectedRoomOption("2-Bedroom")
-                    viewModel.setFetchedPlots(originalPlots.filter { plot -> plot.plot2B })
+                    homeViewModel.setExpandedRooms(false)
+                    homeViewModel.setSelectedRoomOption("2-Bedroom")
+                    homeViewModel.setFetchedPlots(originalPlots.filter { plot -> plot.plot2B })
                 },
                 text = { Text("2-Bedroom") }
             )
             DropdownMenuItem(
                 onClick = {
-                    viewModel.setExpandedRooms(false)
-                    viewModel.setSelectedRoomOption("Bedsitter")
-                    viewModel.setFetchedPlots(originalPlots)
+                    homeViewModel.setExpandedRooms(false)
+                    homeViewModel.setSelectedRoomOption("Bedsitter")
+                    homeViewModel.setFetchedPlots(originalPlots)
                 },
                 text = { Text("Reset") }
             )

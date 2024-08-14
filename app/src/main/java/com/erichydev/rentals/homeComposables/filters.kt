@@ -8,6 +8,7 @@ import androidx.compose.ui.Modifier
 import com.erichydev.rentals.homeComposables.filters.HouseTypeFilter
 import com.erichydev.rentals.homeComposables.filters.PriceFilter
 import com.erichydev.rentals.homeComposables.filters.RatingFilter
+import com.erichydev.rentals.homeComposables.filters.UploadedFilter
 
 @Composable
 fun Filters(
@@ -19,10 +20,10 @@ fun Filters(
     ) {
         HouseTypeFilter(homeViewModel)
 
-        PriceFilter()
+        PriceFilter(homeViewModel)
 
-        RatingFilter()
+        RatingFilter(homeViewModel)
 
-        UploadedFilter()
+        UploadedFilter(homeViewModel)
     }
 }

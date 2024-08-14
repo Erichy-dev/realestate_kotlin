@@ -47,4 +47,12 @@ class HomeViewModel : ViewModel() {
     fun setSelectedRoomOption(roomOption: String) {
         _selectedRoomOption.postValue(roomOption)
     }
+
+    // uploaded filter
+    private val _uploadedFilter = MutableLiveData(true)
+    val uploadedFilter: LiveData<Boolean> = _uploadedFilter
+
+    fun toggleUploadedFilter() {
+        _uploadedFilter.postValue(!_uploadedFilter.value!!)
+    }
 }
