@@ -22,3 +22,5 @@
 - add navigation dependencies
 - plot screen
 - having prepped the screen. Challenger the view into creating the screen view
+- plot pics
+- plot details
