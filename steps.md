@@ -2,6 +2,7 @@
 
 - empty activity app
 - clear mainactivity file.
+- modify the themes file since we'll only be using the dark theme
 - set up the basic home screen
 - set up filters UI
 - home components (clean code) 

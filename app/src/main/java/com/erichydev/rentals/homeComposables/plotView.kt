@@ -1,6 +1,7 @@
 package com.erichydev.rentals.homeComposables
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -30,7 +31,8 @@ import com.erichydev.rentals.data.Plot
 
 @Composable
 fun PlotView(
-    plot: Plot
+    plot: Plot,
+    onPlotClick: (plotId: String) -> Unit
 ) {
     val imageHeight = remember { mutableStateOf(0.dp) }
     val density = LocalDensity.current
@@ -38,7 +40,11 @@ fun PlotView(
         modifier = Modifier
             .padding(4.dp)
     ) {
-        Box(modifier = Modifier.fillMaxSize()) {
+        Box(
+            modifier = Modifier
+                .fillMaxSize()
+                .clickable { onPlotClick(plot.plotNumber) }
+        ) {
             AsyncImage(
                 model = ImageRequest.Builder(LocalContext.current)
                     .data(plot.plotBgPic)

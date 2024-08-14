@@ -55,7 +55,13 @@ fun App() {
 
     NavHost(navController = navController, startDestination = Screens.HomeScreen.route ){
         composable(Screens.HomeScreen.route){
-            Home()
+            Home(
+                onPlotClick = { plotId ->
+                    navController.navigate(
+                        Screens.PlotScreen.passPlotId(plotId)
+                    )
+                }
+            )
         }
 
         composable(Screens.PlotScreen.route){

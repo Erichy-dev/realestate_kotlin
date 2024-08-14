@@ -26,7 +26,9 @@ import com.erichydev.rentals.homeComposables.Title
 import androidx.lifecycle.viewmodel.compose.viewModel
 
 @Composable
-fun Home() {
+fun Home(
+    onPlotClick: (plotId: String) -> Unit
+) {
     val context = LocalContext.current
 
     val homeViewModel: HomeViewModel = viewModel()
@@ -62,7 +64,7 @@ fun Home() {
                             .height(screenHeight)
                     ) {
                         items(fetchedPlots, key = { plot -> plot.plotNumber }) {plot ->
-                            PlotView(plot)
+                            PlotView(plot, onPlotClick)
                         }
                     }
                 }
