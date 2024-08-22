@@ -1,5 +1,6 @@
 package com.erichydev.rentals.homeComposables.filters
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -41,11 +42,7 @@ fun PriceFilter(
                     }
                 )
             }
-            .border(
-                width = 1.dp,
-                color = Color(0xFFedf2f4),
-                shape = RoundedCornerShape(8.dp)
-            ),
+            .background(Color(0xFF002AFF), shape = RoundedCornerShape(8.dp)),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.spacedBy(5.dp),
     ) {

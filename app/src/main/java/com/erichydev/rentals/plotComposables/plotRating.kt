@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -24,17 +25,23 @@ fun PlotRating(
         horizontalArrangement = Arrangement.Center,
     ) {
         LazyRow {
-            items(plot.plotRating) {
+            items(5) { index ->
+                val starImage = if (index < plot.plotRating) {
+                    "file:///android_asset/star.svg"
+                } else {
+                    "file:///android_asset/un-star.svg"
+                }
+
                 AsyncImage(
                     model = ImageRequest.Builder(LocalContext.current)
-                        .data("file:///android_asset/star.svg")
+                        .data(starImage)
                         .decoderFactory(SvgDecoder.Factory())
                         .crossfade(true)
                         .build(),
-                    contentDescription = "home",
+                    contentDescription = if (index < plot.plotRating) "rated star" else "unrated star",
                     modifier = Modifier
-                        .fillMaxWidth()
                         .height(15.dp)
+                        .width(15.dp)
                 )
             }
         }

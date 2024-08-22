@@ -28,6 +28,7 @@ import coil.compose.AsyncImage
 import coil.decode.SvgDecoder
 import coil.request.ImageRequest
 import com.erichydev.rentals.data.Plot
+import com.erichydev.rentals.plotComposables.PlotRating
 
 @Composable
 fun PlotView(
@@ -54,7 +55,7 @@ fun PlotView(
                 modifier = Modifier
                     .fillMaxSize()
                     .align(Alignment.TopCenter)
-                    .clip(RoundedCornerShape(8.dp))  // Apply rounded corners
+                    .clip(RoundedCornerShape(15.dp))  // Apply rounded corners
                     .onGloballyPositioned { layoutCoordinates ->
                         imageHeight.value = with(density) { (layoutCoordinates.size.height).toDp() }
                     }
@@ -62,7 +63,7 @@ fun PlotView(
             Column(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .clip(RoundedCornerShape(8.dp))
+                    .clip(RoundedCornerShape(15.dp))
                     .height(imageHeight.value)
                     .background(Color.Black.copy(alpha = 0.5f))
                     .padding(horizontal = 4.dp),
@@ -91,20 +92,7 @@ fun PlotView(
                         modifier = Modifier,
                     )
                 if (plot.plotRating > 0) {
-                    LazyRow {
-                        items(plot.plotRating) {
-                            AsyncImage(
-                                model = ImageRequest.Builder(LocalContext.current)
-                                    .data("file:///android_asset/star.svg")
-                                    .decoderFactory(SvgDecoder.Factory())
-                                    .crossfade(true)
-                                    .build(),
-                                contentDescription = "home",
-                                modifier = Modifier
-                                    .size(15.dp)  // Optimized image size
-                            )
-                        }
-                    }
+                    PlotRating(plot = plot)
                 }
             }
         }
